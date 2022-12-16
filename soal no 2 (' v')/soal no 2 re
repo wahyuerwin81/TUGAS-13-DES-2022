@@ -1,0 +1,26 @@
+// untuk mencari nama array.
+const names = ['Abigail', 'Alexandra', 'Alison', 'Amanda', 'Angela', 'Bella', 'Carol', 'Caroline', 'Carolyn', 'Deirdre', 'Diana', 'Elizabeth', 'Ella', 'Faith', 'Olivia', 'Penelope'];
+
+// fungsi panggilan balik / callback ,untuk memfilter nama yang berisi substring tertentu.
+function filterNames(name) {
+  return name.toLowerCase().indexOf('an') !== -1;
+}
+
+// berfungsi untuk mencari melalui nama dan mengembalikan sejumlah hasil.
+function searchNames(names, limit, callback) {
+  // filter nama menggunakan fungsi panggilan balik yang disediakan.
+  const filteredNames = names.filter(callback);
+
+  // kembalikan jumlah nama 'batas'/'limit', pertama dari daftar yang difilter
+  return filteredNames.slice(0, limit);
+}
+
+// untuk mencari nama yang mengandung 'a' dan mengembalikan maksimal 5 hasil.
+const searchResults = searchNames(names, 5, filterNames);
+
+// mencetak hasil pencarian
+console.log(searchResults);
+
+
+// Program ini akan mencari nama yang berisi substring "a" dan mengembalikan maksimum 5 hasil pencarian.
+//  Anda dapat mengganti substring yang dicari dan jumlah hasil yang dikembalikan sesuai kebutuhan.
